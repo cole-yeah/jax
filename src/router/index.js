@@ -12,6 +12,11 @@ const router = createRouter({
       path: '/brief/detail/:key',
       name: '活动页',
       component: () => import('../views/brief/detail.vue')
+    },
+    {
+      path: '/imgCheckIn',
+      name: '图片打卡',
+      component: () => import('../views/imgCheckIn/main.vue')
     }
   ]
 })
