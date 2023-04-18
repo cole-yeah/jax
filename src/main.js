@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { Button } from 'vant'
+import { Button, Image } from 'vant'
 import 'vant/lib/index.css';
 
 import App from './App.vue'
@@ -13,5 +13,6 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.use(Button);
+app.use(Image);
 
 app.mount('#app')
