@@ -9,7 +9,15 @@ const activeKeys = useLocalStorage('activeKeys', [])
 const key = params?.key
 
 const imgObj = {
-  ['01']: img01
+  0: img01,
+  1: img01,
+  2: img01,
+  3: img01,
+  4: img01,
+  5: img01,
+  6: img01,
+  7: img01,
+  8: img01
 }
 
 const url = imgObj[key]
