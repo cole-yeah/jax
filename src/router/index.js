@@ -9,9 +9,9 @@ const router = createRouter({
       component: () => import('../views/wxLogin/main.vue')
     },
     {
-      path: '/brief/bgy',
+      path: '/brief/detail/:key',
       name: '活动页',
-      component: () => import('../views/brief/bgy.vue')
+      component: () => import('../views/brief/detail.vue')
     }
   ]
 })
