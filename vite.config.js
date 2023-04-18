@@ -14,7 +14,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     proxy: {
-      // '/wxApi': 'https://api.weixin.qq.com',
       '/wxApi': {
         target: 'https://api.weixin.qq.com',
         changeOrigin: true,
