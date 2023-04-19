@@ -4,6 +4,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      name: 'home',
+      component: () => import('../views/imgCheckIn/main.vue')
+    },
+    {
       path: '/wxLogin',
       name: '微信登录中转页',
       component: () => import('../views/wxLogin/main.vue')
