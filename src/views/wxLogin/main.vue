@@ -1,6 +1,6 @@
 <script setup>
 import { onBeforeMount, onMounted } from 'vue'
-import { request } from '@/request/base'
+import { wxApi } from '@/request'
 import { APP_ID, SECRET } from '@/constants'
 import { useLocalStorage } from '@vueuse/core'
 
@@ -9,9 +9,9 @@ const userInfo = useLocalStorage('userInfo')
 const getWxCodeUrl = () => {
   const redirectUri = `https://m.weilaijishi.cn/wxLogin` // 重定向链接
   const encodeUrl = encodeURIComponent(redirectUri)
-
+  const wxUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize'
   const scope = `snsapi_userinfo` // 获取用户信息
-  const url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${APP_ID}&redirect_uri=${encodeUrl}&response_type=code&scope=${scope}#wechat_redirect`
+  const url = `${wxUrl}?appid=${APP_ID}&redirect_uri=${encodeUrl}&response_type=code&scope=${scope}#wechat_redirect`
   return url
 }
 
@@ -19,10 +19,12 @@ const getAccessTokenByCode = (code) => {
   if (!code) {
     return
   }
-  request
-    .get(
-      `/wxApi/sns/oauth2/access_token?appid=${APP_ID}&secret=${SECRET}&code=${code}&grant_type=authorization_code`
-    )
+  wxApi
+    .getToken({
+      appId: APP_ID,
+      secret: SECRET,
+      code
+    })
     .then((res) => {})
 }
 
