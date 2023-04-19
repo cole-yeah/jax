@@ -2,10 +2,14 @@
 <template ref="imgCheckIn">
   <div class="container">
     <template v-for="(item, index) in imageUrls" :key="index">
-      <div class="img" @click="flipHandle(index)">
-        <img class="block" fit="contain" :src="item" />
-        <div v-if="!activeKeys?.includes(index + '')" class="mask"></div>
-      </div>
+      <div
+        @click="flipHandle(index)"
+        class="block"
+        :class="activeKeys?.includes(index + '') ? 'cancel-block' : ''"
+        :style="{
+          backgroundImage: `url(${item})`
+        }"
+      ></div>
     </template>
   </div>
 </template>
@@ -15,17 +19,12 @@ import { useRouter } from 'vue-router'
 import { useLocalStorage } from '@vueuse/core'
 const router_useRouter = useRouter()
 const activeKeys = useLocalStorage('activeKeys', [])
-const imageUrls = [
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
-]
+console.log(activeKeys,'activeKeys')
+const img01 = 'https://img.league.linkiebuy.com/pic/p6796360302660000000781358948.png'
+const img02 = 'https://img.league.linkiebuy.com/pic/p6680499734660000001540981891.jpeg'
+const img03 = 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
+
+const imageUrls = [img01, img02, img03, img03, img03, img03, img03, img03, img03]
 
 const flipHandle = (idx) => {
   router_useRouter.push({
@@ -35,29 +34,38 @@ const flipHandle = (idx) => {
 </script>
 <style scoped>
 .container {
+  width: 100%;
   display: flex;
+  padding: 1rem;
+  justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 24px;
+  box-sizing: border-box;
 }
 
-.img {
-  position: relative;
-  overflow: hidden;
-}
 .block {
-  margin-bottom: 2%;
-  width: 6rem;
-  height: 6rem;
-  margin-left: 0.5rem;
+  width: 31%;
+  height: 7rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-size: contain; */
 }
 
-.mask {
+.block:nth-child(3n + 3) {
+  margin-bottom: 1rem;
+}
+
+.block::after {
   position: absolute;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 6rem;
-  height: 6rem;
-  margin-left: 0.5rem;
+  left: 0;
+  content: '';
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.cancel-block::after {
+  display: none;
 }
 </style>
