@@ -74,13 +74,13 @@ onBeforeMount(() => {
   const strParams = search.split('?')[1]
   const objParams = qs.parse(strParams)
   // 有code，根据code获取access_token
-  if (objParams.code) {
-    getAccessTokenByCode()
-  } else {
-    // 没有code，先根据appid获取code
-    const url = getWxCodeUrl()
-    window.open(url)
-  }
+  // if (objParams.code) {
+  //   getAccessTokenByCode()
+  // } else {
+  //   // 没有code，先根据appid获取code
+  //   const url = getWxCodeUrl()
+  //   window.open(url)
+  // }
 })
 </script>
 
