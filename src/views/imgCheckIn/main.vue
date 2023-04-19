@@ -37,6 +37,8 @@ const flipHandle = (idx) => {
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
 }
 
 .img {

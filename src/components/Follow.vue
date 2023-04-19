@@ -28,6 +28,6 @@ const handleVisible = () => {
   display: flex;
   justify-content: space-between;
   padding: 6px 16px;
-  background-color: #ffffff7b;
+  background-color: #4a4a4a40;
 }
 </style>
