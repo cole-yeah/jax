@@ -86,9 +86,9 @@ onBeforeMount(() => {
 
 <template>
   <RouterView />
-  <template v-if="!userInfo?.openid">
+  <!-- <template v-if="!userInfo?.openid">
     <Follow />
-  </template>
+  </template> -->
 </template>
 
 <style scoped></style>

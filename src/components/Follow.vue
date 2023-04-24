@@ -11,7 +11,7 @@ const handleVisible = () => {
 <template>
   <div class="footer">
     <div></div>
-    <van-button type="primary" size="small" @click="handleVisible">关注</van-button>
+    <van-button type="primary" @click="handleVisible">关注</van-button>
   </div>
   <van-popup v-model:show="visible">
     <van-image></van-image>
@@ -27,7 +27,7 @@ const handleVisible = () => {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 6px 16px;
+  padding: 16px 24px;
   background-color: #4a4a4a40;
 }
 </style>
