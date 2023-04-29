@@ -53,8 +53,7 @@ import ceshVoice from '@/assets/satellite/voice/cesh.mp3'  // 嫦娥四号
 import hsehVoice from '@/assets/satellite/voice/hseh.mp3' // 海丝二号
 import hyxzVoice from '@/assets/satellite/voice/hyxz.mp3' // 鸿雁星座首发星
 import jsyhVoice from '@/assets/satellite/voice/jsyh.mp3' // 京师一号卫星
-import ktyh01Voice from '@/assets/satellite/voice/ktyh01.mp3' // 开拓一号A星
-import ktyh02Voice from '@/assets/satellite/voice/ktyh02.mp3' // 开拓一号B星
+import ktyhVoice from '@/assets/satellite/voice/ktyh.mp3' // 开拓一号AB星
 import mcxVoice from '@/assets/satellite/voice/mcx.mp3' // 脉冲星试验卫星
 import szfcVoice from '@/assets/satellite/voice/szfc.mp3' // 神舟载人飞船无空间站天和核心舱交会对接
 import thhxcVoice from '@/assets/satellite/voice/thhxc.mp3' // 天和核心舱模型
@@ -85,7 +84,7 @@ export const list = [{
   key: 'ktyh',
   imgUrl: [ktyh0, ktyh1, ktyh2],
   name: '开拓一号A/B星',
-  voice: [ktyh01Voice, ktyh02Voice]
+  voice: ktyhVoice
 }, {
   key: 'mcx',
   imgUrl: [mcx0, mcx1, mcx2],
