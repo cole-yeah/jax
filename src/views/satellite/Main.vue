@@ -4,7 +4,7 @@
       <div
         @click="flipHandle(item.key)"
         class="block"
-        :class="activeKeys?.includes(item.key) ? 'cancel-block' : ''"
+        :class="activeKeys?.includes(item.key) ? '' : 'brightness'"
         :style="{
           backgroundImage: `url(${item.imgUrl[0]})`
         }"
@@ -19,8 +19,6 @@ import { useLocalStorage } from '@vueuse/core'
 import { list } from './constants'
 const router_useRouter = useRouter()
 const activeKeys = useLocalStorage('activeKeys', [])
-
-// const imageUrls = list.map((item) => item.imgUrl)
 
 const flipHandle = (key) => {
   router_useRouter.push({
@@ -49,19 +47,7 @@ const flipHandle = (key) => {
 .block:nth-child(3n + 3) {
   margin-bottom: 1rem;
 }
-
-.block::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: '';
-  background-color: black;
-  opacity: 0.5;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-}
-.cancel-block::after {
-  display: none;
+.brightness {
+  filter: brightness(50%);
 }
 </style>
